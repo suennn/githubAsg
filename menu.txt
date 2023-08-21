@@ -1,0 +1,52 @@
+F001
+Classic Burger
+18.00
+F002
+Double Cheeseburger
+24.00 
+F003
+Veggie Burger
+14.00
+F004
+Chicken Parmesan
+20.00
+F005
+Grilled Chicken Chop
+25.00	
+F006
+Mushroon Pasta
+18.00
+F007
+Pasta Carbonara
+18.00
+F008
+Seafood Pasta
+20.00
+F009
+Fish and Chips
+22.00
+F010
+Grilled Salmon
+25.00
+F011
+Roasted Vegetable Platter
+16.00
+F012
+French Fries
+6.00
+F013
+Coleslaw
+5.00
+B014
+Iced Lemon Tea
+6.00
+B015
+Orange Juice	
+9.00
+B016
+Lemonade	
+5.00
+B017
+Iced Fruit Tea
+5.00
+
