@@ -1,10 +1,100 @@
-write yr code heree
-abcd
-hahahaha
-finally can leh
-haii we try to弄 our code 美一点 haha
-can name our function ex. void function DisplayMenu (capital letter each word, no space)
+ #include <iostream>
+#include<fstream>
+#include<iomanip>
+#include <stdlib.h>
+#include <cmath>
+#include <cctype>
+#include <ctime>
+#include <Windows.h>
+#include <string>
+#include <time.h> 
+#include<chrono>
+ 
+using namespace std;
+void OpenMemberDetails(int& nomember);
+void MembershipManagement();
+string upper(string uppercase);
+void DisplayMembership();
+void UserInterface();
+void AdminInterface();
+void DisplayPromotion();
+void Admin_SearchMember();
+void PromotionManagement();
+void ReadTextRecord(int record);
+string text[40][7];
+string upper(string uppercase);
+struct MemberDetails {
+	string Details_user, Details_name, Details_password, Details_join, Details_phone, Details_email, Details_status, Details_point;
+}Member[100];
 
+int main()
+{
+	int loginchoice;
+	cout << "\n\n\n ------------------" << endl;
+	cout << " Login \2" << endl;
+	cout << "1.user\n2.admin" << endl;
+	cout << "enter yr selection: ";
+	cin >> loginchoice;
+	if (loginchoice == 1)
+		UserInterface();
+	if (loginchoice == 2)
+		AdminInterface();
+		
+	 
+	return 0;
+}
+void UserInterface()
+{
+	system("cls");
+	cout<<"this is user interface"<<endl; 
+
+}
+void AdminInterface()
+{
+	bool decision = true;
+	do
+	{
+	system("cls");
+	int adminchoice;
+	cout << "this is admin interface" << endl;
+	cout << "1.Menu Management   " << endl;
+	cout << "2.pending bill     " << endl;
+	cout << "3.membership management      " << endl;
+	cout << "4.Promotion management" << endl;
+	cout << "enter yr selection: ";
+	cin >> adminchoice;
+	switch (adminchoice)
+	{
+	case(1):
+	{
+		//menumanagement
+		break;
+	}
+	case(2):
+	{
+		//pending bill
+		break;
+	}
+	case(3):
+	{
+		MembershipManagement();
+		break;
+	}
+	case(4):
+	{
+		PromotionManagement();
+		break;
+	}
+	default://reinput
+	{
+		cout << "\t\t\t\t\t\t\t\t\t\033[1;91mInvalid input! \033[0m" << endl;
+		break;
+	}
+
+	}
+	 
+}while (decision);
+}
 
 
 
