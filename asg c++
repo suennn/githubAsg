@@ -1,32 +1,138 @@
- #include <iostream>
+#include<iostream>
 #include<fstream>
 #include<iomanip>
-#include <stdlib.h>
-#include <cmath>
-#include <cctype>
-#include <ctime>
-#include <Windows.h>
-#include <string>
-#include <time.h> 
+#include<string>
+#include<time.h>
 #include<chrono>
- 
-using namespace std;
-void OpenMemberDetails(int& nomember);
-void MembershipManagement();
-string upper(string uppercase);
-void DisplayMembership();
-void UserInterface();
-void AdminInterface();
-void DisplayPromotion();
-void Admin_SearchMember();
-void PromotionManagement();
-void ReadTextRecord(int record);
-string text[40][7];
-string upper(string uppercase);
-struct MemberDetails {
-	string Details_user, Details_name, Details_password, Details_join, Details_phone, Details_email, Details_status, Details_point;
-}Member[100];
 
+using namespace std;
+
+void UserInterface();
+void AdminVerify();
+void AdminInterface();
+void PromotionManagement();
+void MembershipManagement();
+void DisplayMembership();
+void Admin_DeleteMember();
+//void Admin_SearchMember();
+struct MemberDetails {
+	string Details_user, Details_password,Details_name,Details_dob, Details_points, Details_phone, Details_email;
+}Member[100];
+//string upper(string uppercase);
+void OpenMemberDetails(int& nomember);
+int main()
+{
+	int loginchoice;
+	ifstream intitle;
+	intitle.open("title.txt");
+	int startline = 1;
+	int endline = 5;
+	int currentline = 1;
+	string line;
+	while (getline(intitle, line))
+	{
+		if (currentline >= startline && currentline <= endline)
+		{
+			cout << "\t\t\t\t\t" << line << endl;
+		}
+		if (currentline > endline)
+		{
+			break;
+		}
+		currentline++;
+	}
+	cout << "\n\t\t\t\t" << string(135, char(95)) << endl;
+	cout << "\n\t\t\t\t\tLogin\2" << endl;
+	cout << "\t\t\t\t\t1.User\n\t\t\t\t\t2.Admin" << endl;
+	cout << "\t\t\t\t\t\033[1;34mPlease input your selection >>> \033[0m";
+	cin >> loginchoice;
+	if (loginchoice == 1)
+		UserInterface();
+	if (loginchoice == 2)
+		AdminVerify();
+
+	return 0;
+}
+void UserInterface()
+{
+	system("cls");
+	cout << "This is User Interface" << endl;
+}
+void AdminVerify()
+{
+	system("cls");
+	int idinput, passwordinput;
+	int id = 12345, password = 54321;
+	cout << "'\n\n\t\t\t" << string(150, char(95)) << endl;
+	cout << "\n\t\t\tPlease key in admin id and password in order to view administrator page" << endl;
+	cout << "\t\t\t" << string(150, char(95)) << endl;
+	cout << "\t\t\tID:12345 password:54321 For UCCD1004 Asg2 purpose only" << endl;
+	bool decision = false;
+	do
+	{
+		cout << "\n\t\t\tID: ";
+		cin >> idinput;
+		cout << "\t\t\tPassword: ";
+		cin >> passwordinput;
+		if (idinput == id)
+		{
+			if (passwordinput == password)
+			{
+				decision = true;
+				AdminInterface();
+			}
+			else
+				decision = false;
+		}
+		else
+			decision = false;
+	} while (decision = false);
+}
+void AdminInterface()
+{
+	bool decision = true;
+	do
+	{
+		system("cls");
+		int adminchoice;
+		cout << "This is admin interface" << endl;
+		cout << "1.Menu Management" << endl;
+		cout << "2.Pending Bill" << endl;
+		cout << "3.Membership Management" << endl;
+		cout << "4.Promotion Management" << endl;
+		cout << "Enter Your Selection: ";
+		cin >> adminchoice;
+		switch (adminchoice)
+		{
+		case(1):
+		{
+			//menumanagement
+			break;
+		}
+		case(2):
+		{
+			//pending bill
+			break;
+		}
+		case(3):
+		{
+			//MembershipManagement();
+			break;
+		}
+		case(4):
+		{
+			//PromotionManagement();
+			break;
+		}
+		default:
+		{
+			cout << "\t\t\t\t\t\t\t\033[1;91mInvalid INput1! \033[0m" << endl;
+			break;
+		}
+		}
+
+	} while (decision);
+}
 int main()
 {
 	int loginchoice;
