@@ -30,10 +30,27 @@ struct MemberDetails {
 int main()
 {
 	int loginchoice;
-	cout << "\n\n\n ------------------" << endl;
-	cout << " Login \2" << endl;
-	cout << "1.user\n2.admin" << endl;
-	cout << "enter yr selection: ";
+	ifstream intitle;
+	intitle.open("title.txt");
+	int startline = 1;
+	int endline = 6;
+	int currentline = 1;
+	string line;
+	while (getline(intitle, line)) {
+		if (currentline >= startline && currentline <= endline) {
+			cout << "\t\t\t\t\t" << line << std::endl;
+		}
+
+		if (currentline > endline) {
+			break; // Exit loop after reading the desired range
+		}
+
+		currentline++;
+	}
+	cout << "\n\t\t\t\t --------------------------------------------------------------------------------------------------------------------------------------------" << endl;
+	cout << "\t\t\t\t\tLogin \2" << endl;
+	cout << "\t\t\t\t\t1.user\n\t\t\t\t\t2.admin" << endl;
+	cout << "\t\t\t\t\tenter yr selection: ";
 	cin >> loginchoice;
 	if (loginchoice == 1)
 		UserInterface();
