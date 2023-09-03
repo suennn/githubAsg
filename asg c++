@@ -54,7 +54,93 @@ int main()
 	return 0;
 }
 void UserInterface()
+{ bool decision = true;
+	string selection;
+
+	while (decision) {
+		system("cls");
+		cout << "User Interface" << endl;
+		cout << "Welcome to xxx" << endl;
+		cout << "1. Menu" << endl;
+		cout << "2. Order Now" << endl;
+		cout << "3. Customer Feedback" << endl;
+		cout << "4. Exit" << endl;
+
+		cout << "\t\t\tPlease input your selection >>> ";
+		cin >> selection;
+
+		if (selection == "1") {
+			displayMenu(); // Assuming you have a function named displayMenu
+		}
+		else if (selection == "2") {
+			OrderNow(); // Assuming you have a function named OrderNow
+		}
+		else if (selection == "3") {
+			CustomerFeedback(); // Assuming you have a function named CustomerFeedback
+		}
+		else if (selection == "4") {
+			decision = false;
+		}
+		else {
+			cout << "\t\t\tInvalid input detected" << endl;
+			Sleep(600);
+		}
+
+		cin.ignore(); // Clear the newline character from input buffer
+	}
+
+	system("pause");
+}
+
+
+//display menu
+void displayMenu()
 {
+	string code, desc;
+	ifstream menu;
+	menu.open("menu.txt");
+	while (!menu.eof())
+	{
+		menu >> code;
+
+		getline(menu, desc);
+		cout << code << ": " << desc << endl;
+	}
+
+	menu.close();
+}
+
+
+
+
+
+
+//ordernow
+void OrderNow() {
+	int choice;
+	displayMenu();
+}
+	cout << "Enter the number of the item you want to order (0 to finish): ";
+	cin >> choice;
+
+while (choice > 0 && choice <= static_cast<int>(menu.size())) {
+	order.push_back(menu[choice - 1]);
+	cout << menu[choice - 1].name << " added to the order.\n";
+	cout << "Enter the number of the next item you want to order (0 to finish): ";
+	cin >> choice;
+}
+	}
+
+	void displayOrder() {
+		double total = 0.0;
+		cout << "Order:\n";
+		for (const MenuItem& item : order) {
+			cout << item.name << " - $" << item.price << endl;
+			total += item.price;
+		}
+		cout << "Total: $" << total << std::endl;
+	}
+};
 	system("cls");
 	cout << "This is User Interface" << endl;
 }
